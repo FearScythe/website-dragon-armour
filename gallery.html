@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DragonsArmourPH</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="png/jpg" href="Images/Icon/logo.png">
+        <style>
+            body, html {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                font: 400 15px/1.8 "Lato", sans-serif;
+                color: whitesmoke;
+                background-color: #141414;
+            }
+            .tablink {
+                background-color: #5e5e5e;
+                color: white;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                font-size: 20px;
+                font-weight: bolder;
+                width: 33.33%;
+            }
+            .tablink:hover {
+                background-color: #777;
+            }
+            .tabcontent {
+                color: white;
+                display: none;
+                height: auto;
+            }
+            #POLO img, #JERSEY img, #LSJ img{
+                display: inline-block;
+                margin: 10px;
+                padding: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            #POLO,#JERSEY,#LSJ  {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .tablink:hover {
+                background-color: #807e7e;
+                text-decoration: underline;
+            }         
+            .modal {
+              display: none; 
+              position: fixed; 
+              z-index: 1; 
+              padding-top: 100px;
+              left: 0;
+              top: 0;
+              width: 100%; 
+              height: 100%; 
+              overflow: auto; 
+              background-color: rgb(0,0,0);
+              background-color: rgba(0,0,0,0.9);
+            }
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+		height: 90%;
+            }
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            
+            #sideNav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                background-color: #111;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+
+            #sideNav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+            #sideNav a:hover {
+                color: #f1f1f1;
+            }
+            #sideNav i:hover {
+                color: #f1f1f1;
+            }
+            #sideNav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+            #myBtn {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 30px;
+                z-index: 99;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                background-color: #ed3a34;
+                color: white;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 4px;
+            }
+            .sideNavOpen {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                margin: auto;
+                padding: 4px 8px;
+                width: auto;
+                text-decoration: none;
+                font-size: 40px;
+                color: white;
+                border-style: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+            #sideNav i{
+                font-size: 24px;
+            }
+            
+            @media only screen and (max-width: 700px){
+                .modal-content {width: 100%;}
+                .tablink {font-size: 14px; font-weight: bolder;padding: 10px 8px;}
+                .sideNavOpen i {font-size: 32px}
+            }
+            @media screen and (max-height: 450px) {
+              .sidenav {padding-top: 15px;}
+              .sidenav a {font-size: 18px;}
+            }
+    </style>
+    </head>
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-angle-double-up"></i></button>
+        <div id="sideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html" id="HOME"><i class="fas fa-home"></i>  Home </a>
+            <a href="https://www.facebook.com/DragonsArmourPH" id="SHOP"><i class="fas fa-shopping-basket"></i>  Shop</a>
+        </div>
+        <button class="sideNavOpen" onclick="openNav()"><i class="fas fa-bars" onclick="openNav()"></i></button>
+        <div id="main">
+            <center>
+                <br>
+                <br>
+                <br>
+                <img class="icon-text" src="Images/Icon/Icon.png" width="70%" height="50%">
+                <br>
+                <br>
+                <br>
+            </center>
+            <div class="tab">
+                <button class="tablink" onclick="openPage('JERSEY', this, '#e8b017', '#121212')" id="defaultOpen">Jersey</button>
+                <button class="tablink" onclick="openPage('POLO', this, '#e8b017', '#121212')">Polo</button>
+                <button class="tablink" onclick="openPage('LSJ', this, '#e8b017', '#121212')">Long Sleeve & Jackets</button>
+            </div>
+            <div id="JERSEY" class="tabcontent">
+                <center>
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/1.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/2.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/3.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/4.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/5.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/6.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/7.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/8.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/9.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/10.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/11.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/12.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/13.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/14.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/15.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/16.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/17.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/18.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/19.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/20.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/21.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/22.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/23.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/24.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/25.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/26.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/27.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/28.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/29.png" width="300px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Jerseys/30.png" width="300px" height="300px">
+                </center>
+            </div>
+
+            <div id="POLO" class="tabcontent">
+                <center>
+                    <img class="myImg" src="Images/Panels/Products/Polo/1.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/2.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/3.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/4.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/5.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/6.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/7.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/8.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/9.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/10.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/11.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/12.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/13.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/14.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/15.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/16.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/17.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/18.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/19.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/20.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/21.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/22.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/23.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/24.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/25.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/26.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/27.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/28.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/29.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/Polo/30.png" width="400px" height="300px">
+                </center>
+            </div>
+            <div id="LSJ" class="tabcontent">
+                <center>
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/1.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/2.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/3.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/4.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/5.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/6.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/7.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/8.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/9.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/10.png" width="400px" height="300px">
+                    <img class="myImg" src="Images/Panels/Products/LongSleeves/11.png" width="400px" height="300px">
+                </center>
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01">
+        </div>
+    </body>
+</html>
+<script>
+function openPage(pageName,elmnt,color1,color2) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color1;
+    elmnt.style.color = color2;
+}
+document.getElementById("defaultOpen").click();
+    
+
+var modal = document.getElementById("myModal");
+var i;
+
+var img = document.getElementsByClassName("myImg");
+var modalImg = document.getElementById("img01");
+
+ for(i=0;i< img.length;i++)
+   {    
+    img[i].onclick = function(){
+
+    modal.style.display = "block";
+       modalImg.src = this.src;
+
+ }
+}
+
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+var mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+    
+function openNav() {
+  document.getElementById("sideNav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("sideNav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+</script>

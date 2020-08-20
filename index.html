@@ -1,0 +1,480 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>DragonsArmour</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="png/jpg" href="Images/Icon/logo.png">
+        <style>
+           body, html {
+                height: 100%;
+                margin: 0;
+                font: 400 15px/1.8 "Lato", sans-serif;
+                color: black;
+                background-color: black;
+            }
+            .order {
+                border: 2px solid black;
+                background-color:transparent;
+                padding: 10px 10px;
+                color: #ffff3b;
+                cursor: pointer;
+                border-color: #ffff3b;
+                border-radius: 12px;
+            }
+            .order:hover {
+                text-decoration: underline;
+            }
+            .first-slide a {
+                text-decoration: none;
+                color: grey;
+            }
+            #myBtn {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 30px;
+                z-index: 99;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                background-color: #ed3a34;
+                color: white;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 4px;
+            }
+            .background2 {
+                position: relative;
+                opacity: 100%;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .background2 {
+                background-image: url("Images/Background/bg7.jpg");
+                min-height: 100%;
+                opacity: 20;
+            }
+            .slider {
+                min-width: 100%;
+                min-height: 100%;
+                position: relative;
+            }
+            .slide1,.slide2,.slide3 {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .slide1 {
+                background: url("Images/Background/bg4.jpg")no-repeat center;
+                background-size: cover;
+                animation:fade 12s infinite;
+                -webkit-animation:fade 12s infinite;
+                -webkit-animation-delay: 4s;
+                background-attachment: fixed;
+
+            } 
+            .slide2 {
+                background: url("Images/Background/bg5.jpg")no-repeat center;
+                background-size: cover;
+                animation:fade2 12s infinite;
+                -webkit-animation:fade2 12s infinite;
+                -webkit-animation-delay: 4s;
+                background-attachment: fixed;
+            }
+            .slide3 {
+                background: url("Images/Background/bg6.jpg")no-repeat center;
+                background-size: cover;
+                animation:fade3 12s infinite;
+                -webkit-animation:fade3 12s infinite;
+                -webkit-animation-delay: 4s;
+                background-attachment: fixed;
+            }
+            @keyframes fade
+            {
+              0%   {opacity:30}
+              33.333% { opacity: 0}
+              66.666% { opacity: 0}
+              100% { opacity: 10}
+            }
+            @keyframes fade2
+            {
+              0%   {opacity:0}
+              33.333% { opacity: 30}
+              66.666% { opacity: 0 }
+              100% { opacity: 0}
+            }
+            @keyframes fade3
+            {
+              0%   {opacity:0}
+              33.333% { opacity: 0}
+              66.666% { opacity: 30}
+              100% { opacity: 0}
+            }
+            .first-slide i {
+                font-size: 40px;
+                color: darkgrey;
+                opacity: 0.40;
+            }
+            .desc {
+                text-align: center;
+                font-size: 18px;
+                padding: 50px 100px;
+                margin-top: -50px;
+            }
+            .first-slide h1 {
+                margin-top: 0;
+                text-align: center;
+            }
+            .first-slide {
+                color: black;
+                background-color:white;
+                text-align:center;
+                padding:80px 90px;
+                text-align: justify;
+                height: auto; 
+                margin-left:0%; 
+                margin-right:0%
+            }
+            .first-slide .actLogo {
+                margin-top: -50px;
+            }
+            .prd {
+                text-align: center; 
+                margin-bottom:: -5px;
+            }
+            .prd-desc {
+                margin-top:-10px;
+                font-size: 18px;
+                text-align: center;
+            }
+            .prd-pic {
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 20px;
+            }
+            .gallery i {
+                display: inline-block;
+                font-size: 20px;
+                color: grey;
+                opacity: 1;
+            }
+            .gallery:hover{
+                padding: 10px;
+                color: white;
+                background-color: #4174e0;
+                border-radius: 8px;
+                text-decoration: underline;
+            }
+            .gallery:hover i{
+                color: white;
+            }
+            .gallery:hover a{
+                color: white;
+            }
+            .details {
+                color: whitesmoke;
+                background-color:#141414;
+                text-align:center;
+                padding:80px 90px;
+                text-align: justify;
+                height: auto;
+            }
+            .cover {
+                background-color: black;
+                opacity: 0.6;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+            .icon-text-DA {
+                position:relative;
+                margin-top: -8%;
+                width: 95%;
+                height: 90%;
+            }
+            .service{
+                position:relative;
+                margin-top: -2%;
+                padding: 80px 100px;
+            }
+            .column {
+                display: inline-block;
+                width: 22.11%;
+                padding: 10px;
+            }
+            .column img {
+                position: relative;
+            }
+
+            .service{
+                background-color: rgba(0, 0, 0, 0.6);
+                min-height: 540px;
+                height: 100%;
+                z-index: -0.5;
+            }
+            .icon {
+                display: inline-block;
+                width: 33%;
+            }
+            .icon .text {
+                margin-top: -5%;
+            }
+            .text h2{
+                margin-bottom: -5%;
+                padding: 0;
+            }
+            .company{
+                padding: 50px 100px;
+            }
+            .sublimation, .layout{
+                display: inline-block;
+                width: 45%;
+                height: auto;
+                margin-top: 5%;
+                padding: 20px;
+                color: white;
+            }
+            .sublimation p, .layout p {
+                font-size: 20px;
+                margin-top: -10px;
+            }
+            .sublimation i, .layout i{
+                font-size: 40px;
+                color: #ffe945;
+            }
+            .icon i {
+                font-size: 28px;
+                padding: 15px;
+                color: #ffb303;
+            }
+            .social-media i{
+                font-size: 22px;
+                padding: 7px 10px;
+                margin: 5px;
+                background-color: #2c3542;
+                color: #141414;
+                border-radius: 8px;
+            }
+            button {
+                padding: 10px 30px;
+                font-size: 22px;
+                background-color: white;
+                margin:  auto;
+                border-style: hidden;
+
+            }
+            .gmail {
+                margin-bottom: 50px;
+                font-size: 18px;
+                text-decoration: none;
+                color: white;
+            }
+            h1 {
+                font-size: 40px;
+            }
+            .social-media #facebook:hover{
+                color: #023963;
+                background-color: white;
+            }
+            .social-media #insta:hover {
+                color: #8c02c7;
+                background-color: white;
+            }
+            @media (max-width: 1300px){
+                .column {display:block; float: left; width: 45%;}
+                 .desc { padding: 5px 10px; margin-top: 25px;}
+            }
+            @media (max-width:774px){
+                .layout, .sublimation, .icon {display: block; width: 100%; margin-top: 30px;}
+                .column {display:block; width: 100%; padding: inherit;}
+                .slider,.slide1,.slide2,.slide3{min-height: 350px;}
+                .company img{margin-top: 10%; width: 90%; height: 50%;}
+                .desc { padding: 5px 10px; margin-top: 25px;}
+                
+            }
+            @media (max-width:605px){
+                .slider,.slide1,.slide2,.slide3{min-height: 50%;}
+                .slider img {position:absolute;margin-left: -45%;}
+                .column {margin-left: -5px;}
+                .column img {margin: auto; width: 200px; height: 200px;}
+                .welcome {margin-left: -50px; margin-right: -50px;}
+                .welcome, .prd, .service h1 {font-size: 28px;}
+                .company {margin-left: -10px; margin-right: -10px; padding: 0;}
+                .company img{margin-top: 10%; width: 90%; height: 50%;}
+                .layout, .sublimation {margin-top: 80px; margin-right: auto; margin-left: auto; width: auto;}
+                .layout p, .sublimation p {font-size:  20px;}
+                .icon {margin-top: -25px; margin-bottom: 75px;}
+                .desc {font-size: 16px; text-align: justify; margin-left: -25px; margin-right: -25px; padding: 5px 10px; margin-top: 25px;}
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-angle-double-up"></i></button>
+        <div class='slider'>
+            <div class='slide1'></div>
+            <div class='slide2'></div>
+            <div class='slide3'></div>
+            <div class="cover"></div>
+            <center>
+                <img class="icon-text-DA" src="Images/Icon/Logo1.png">
+            </center>
+        </div>
+        
+        <div class="first-slide">
+            <center>
+                <img class="actLogo" src="Images/Icon/logo.png" width="200px" height="200px" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1500">
+            </center>
+            
+            <h1 class="welcome">Welcome To Dragons Armour</h1>     
+            <p class="desc">Dragons Armour PH has been one of many apparels & clothing providers in the country. Our business caters sports league, sports enthusiast,riders and goverment agencies. We accept customization for Jerseys, Corporate & Office Uniforms, Event & Activity Shirts, ALUMNI Batch Shirts, Organization & Club Shirts, Sports & Team Uniform. We ensure that our products is high quality, durable, comfortable for our clients at affordable price. </p>
+            
+            <br>
+            <hr>
+            <br>
+            
+            <center><i class="fas fa-tag"></i></center>
+            <h1 class="prd"> Our Products </h1>
+            <p class="prd-desc">Choose on wide-range of clothing and designs! We accept customized-orders as well.</p>
+            
+            <div class="prd-pic">
+                <div class="column" data-aos="fade-up"  data-aos-duration="1500">
+                    <center>
+                        <h2>Jerseys</h2>
+                        <img src="Images/Panels/MainPanel/Jersey.jpg" width="250px" height="250px">
+                    </center>
+                </div>
+                <div class="column" data-aos="fade-up"  data-aos-duration="1500">
+                    <center>
+                        <h2>T-Shirts</h2>
+                        <img src="Images/Panels/MainPanel/Shirt.jpg" width="250px" height="250px">
+                    </center>
+                </div>
+                <div class="column" data-aos="fade-up"  data-aos-duration="1500">
+                    <center>
+                        <h2>Polo Shirts</h2>
+                        <img src="Images/Panels/MainPanel/PoloShirt.jpg" width="250px" height="250px">
+                    </center>   
+                </div>
+                <div class="column" data-aos="fade-up"  data-aos-duration="1500">
+                    <center>
+                        <h2>Long Sleeves & Jackets</h2>
+                        <img src="Images/Panels/MainPanel/Sleeves.jpg" width="250px" height="250px">   
+                    </center>
+                </div>
+            </div>
+            
+            <center>
+                <button style="margin-top: 30px;" class="gallery" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="1500" title="Go to Gallery"><a href="gallery.html"><i class="fas fa-photo-video"></i> View Gallery</a></button>
+            <p style="font-size: 20px; margin-top:20px;">Check out some of our designs!</p> 
+
+            </center>
+            
+            <br>
+            <hr>
+        </div>
+        
+        <div class="background2">
+            <center>
+                <div class="service"> 
+                    <i class="fab fa-whmcs" style="font-size: 45px; color: darkgrey; opacity: 0.40; margin-bottom: -5px"></i>
+                    <h1 style="color: white; margin-top: -5px;">Our Service</h1>
+                    
+                    <div class="layout" data-aos="fade-right">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <h2>Free Layout</h2>
+                        <p style="text-align: center">Got any ideas/design? We can customized your shirt as much as you want.</p>
+                    </div>
+                    
+                    <div class="sublimation" data-aos="fade-left">
+                        <i class="fas fa-print"></i>
+                        <h2>Full-Dye Sublimation Printing</h2>
+                        <p style="text-align: center">We can print High Quality and Standard colors.</p>
+                    </div>
+                    
+                </div>
+            </center>
+        </div>
+        
+        <div class="details">
+            <div>
+                <center>
+                    <div class="icon" data-aos="fade-up">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="text">
+                            <h2>Find Us</h2>
+                            <p style="color: #bfbfbf">65 Orchids St. Dalig,<br> Antipolo, 1870, Philippines</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon" data-aos="fade-up">
+                        <i class="fa fa-phone"></i>
+                        <div class="text">
+                            <h2>Contact Us</h2>
+                            <p style="color: #bfbfbf">09079886670(Smart)<br>09350930424(Globe)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon" data-aos="fade-up">
+                        <i class="fa fa-envelope"></i>
+                        <div class="text">
+                            <h2>Mail Us</h2>
+                            <br>
+                            <a style="color: #bfbfbf" href="https://https://mail.google.com" target="_blank" class="gmail">dragonsarmour8@gmail.com</a>
+                            <br>
+                        </div>
+                    </div>
+                </center>
+                
+                <br>
+                <hr>
+                
+                <center>
+                    <div class="company">
+                        <a href="index.html"><img src="Images/Icon/Icon.png" width="50%" height="30%" ></a>
+                        <hr>
+                        <center>
+                            <p>We offer comfortable, quality and affordable apparel and clothing for your passion. We also accepts customized orders and designs.</p>
+                            <button class="order" title="Order Now!"><a href="https://www.facebook.com/DragonsArmourPH" target="_blank" style="text-decoration: none;color:#ffff3b"><i class="fas fa-cart-plus"></i><i>   Order Now!</i></a></button>
+                        </center>
+                    </div>
+                    
+                    <div class="social-media">
+                        <h2 style="margin-bottom:-5px;">Follow us!</h2>
+                        <p style="margin-top:-5px;color: #bfbfbf;">Be update to our latest designs by following us on our social media accounts!</p>
+                        <a title="Like Us On Facebook!" href="https://www.facebook.com/DragonsArmourPH" target="_blank"><i id="facebook" class="fab fa-facebook-square"></i></a>
+                        <a title="Follow Us On Instagram!"href="https://www.instagram.com/dragonsarmourph" target="_blank"><i id="insta" class="fab fa-instagram"></i></a>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+ AOS.init();
+    
+
+var mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+    
+</script>
